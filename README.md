@@ -9,7 +9,7 @@
 
 打破枯燥的命令行列表，用**可视化交互**带你走完 Git 企业级开发全流程。
 
-[在线演示 (Live Demo)](https://你的用户名.github.io/你的仓库名/)
+[在线演示 (Live Demo)](https://vita0519.github.io/Git_Ultimate/)
 
 </div>
 
