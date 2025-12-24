@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git 零基础保姆级上手手册</title>
+    <style>
+        :root {
+            --primary: #f05032;
+            --bg: #f4f7f6;
+            --text: #333;
+            --code-bg: #282c34;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: var(--primary); text-align: center; border-bottom: 2px solid var(--primary); padding-bottom: 10px; }
+        h2 { border-left: 5px solid var(--primary); padding-left: 15px; margin-top: 30px; color: #444; }
+        
+        .concept-map { display: flex; justify-content: space-around; align-items: center; background: #fffdf9; border: 1px dashed #e67e22; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .box { padding: 10px 15px; border-radius: 5px; text-align: center; font-weight: bold; font-size: 0.9em; }
+        .box.work { background: #e3f2fd; border: 1px solid #2196f3; }
+        .box.stage { background: #fff3e0; border: 1px solid #ff9800; }
+        .box.repo { background: #e8f5e9; border: 1px solid #4caf50; }
+        .arrow { color: #666; font-size: 20px; }
+
+        pre { background: var(--code-bg); color: #abb2bf; padding: 15px; border-radius: 6px; overflow-x: auto; position: relative; }
+        code { font-family: 'Consolas', monospace; }
+        .comment { color: #5c6370; font-style: italic; }
+        .cmd { color: #61afef; font-weight: bold; }
+        
+        .step-card { background: #f9f9f9; border-left: 4px solid #ddd; padding: 15px; margin: 15px 0; }
+        .warning { background: #fff5f5; border-left-color: #ff4d4f; padding: 15px; }
+        .success { background: #f6ffed; border-left-color: #52c41a; padding: 15px; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Git 版本管理快速入门</h1>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="Git_Ultimate.html" style="display: inline-block; padding: 10px 20px; background-color: var(--primary); color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+            🚀 进阶：查看 Git 企业级实战手册 (终极详解版)
+        </a>
+    </div>
+
+    <h2>1. 核心概念：文件的“三座大山”</h2>
+    <p>Git 的本质就是把文件在以下三个区域搬运：</p>
+    
+    <div class="concept-map">
+        <div class="box work">工作区<br>(Writing)</div>
+        <div class="arrow">➔ add ➔</div>
+        <div class="box stage">暂存区<br>(Staging)</div>
+        <div class="arrow">➔ commit ➔</div>
+        <div class="box repo">本地仓库<br>(History)</div>
+        <div class="arrow">➔ push ➔</div>
+        <div class="box repo" style="background: #333; color: white;">远程仓库<br>(GitHub/GitLab)</div>
+    </div>
+
+    <h2>2. 常用操作指令</h2>
+
+    <h3>首次下载项目</h3>
+    <pre><code><span class="comment"># 将远程代码完整下载到本地</span>
+<span class="cmd">git clone</span> https://github.com/用户名/仓库名.git</code></pre>
+
+    <h3>日常提交代码 (最常用)</h3>
+    <div class="step-card">
+        <pre><code><span class="comment"># 1. 查看哪些文件改动了</span>
+<span class="cmd">git status</span>
+
+<span class="comment"># 2. 把改动的文件添加到“暂存区” ( . 代表所有)</span>
+<span class="cmd">git add .</span>
+
+<span class="comment"># 3. 提交到本地仓库，并写下备注</span>
+<span class="cmd">git commit -m</span> "修复了登录页面的显示问题"
+
+<span class="comment"># 4. 推送到服务器，让同事看到</span>
+<span class="cmd">git push origin main</span></code></pre>
+    </div>
+
+    <h3>更新别人的代码</h3>
+    <pre><code><span class="comment"># 开始工作前，先拉取服务器上最新的代码</span>
+<span class="cmd">git pull origin main</span></code></pre>
+
+    <h2>3. 冲突解决 (最头疼的情况)</h2>
+    <p><strong>场景：</strong>你和同事同时改了同一行代码，你 <code>pull</code> 时报错了。</p>
+    
+    <div class="warning">
+        <strong>第一步：</strong>打开报错的文件，你会看到这种奇怪的符号：
+        <pre><code style="background: #fff; color: #333; border: 1px solid #ccc;">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+我写的内容：这是我的创意
+=======
+同事写的：这是他的想法
+>>>>>>> 4e2b1d...</code></pre>
+    </div>
+
+    <div class="success">
+        <strong>第二步：</strong>
+        1. 手动删除 <code>&lt;&lt;&lt;</code>, <code>===</code>, <code>&gt;&gt;&gt;</code> 这些行。<br>
+        2. 把代码修整成最终想要的样子。<br>
+        3. 重新执行 <code>git add .</code> 和 <code>git commit</code> 即可。
+    </div>
+
+    <h2>4. 记忆锦囊 (Cheat Sheet)</h2>
+    <table>
+        <tr>
+            <th>动作</th>
+            <th>命令</th>
+            <th>通俗理解</th>
+        </tr>
+        <tr>
+            <td>初始化</td>
+            <td><code>git init</code></td>
+            <td>让这个文件夹被 Git 管理</td>
+        </tr>
+        <tr>
+            <td>撤销</td>
+            <td><code>git checkout .</code></td>
+            <td><strong>后悔药：</strong>丢弃没提交的所有改动</td>
+        </tr>
+        <tr>
+            <td>看日志</td>
+            <td><code>git log</code></td>
+            <td>翻看以前的提交记录</td>
+        </tr>
+        <tr>
+            <td>创分支</td>
+            <td><code>git checkout -b dev</code></td>
+            <td>开辟一个叫 dev 的平行世界</td>
+        </tr>
+    </table>
+
+    <div style="text-align: center; margin-top: 50px; color: #999; font-size: 0.8em;">
+        Powered by Git Beginner Guide | 建议配合 VS Code 内置的 Git 图形化界面使用效果更佳
+    </div>
+</div>
+
+</body>
+</html>
