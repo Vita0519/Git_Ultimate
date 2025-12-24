@@ -1,7 +1,5 @@
-
-# 🚀 Git 交互式企业级实战手册 (Git Ultimate Guide)
-
 <div align="center">
+🚀 Git 交互式企业级实战手册 (Git Ultimate Guide)
 
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -11,7 +9,7 @@
 
 打破枯燥的命令行列表，用**可视化交互**带你走完 Git 企业级开发全流程。
 
-[在线演示 (Live Demo)](https://你的用户名.github.io/你的仓库名/) · [下载离线版](#-下载与使用) · [报告 Bug](../../issues)
+[在线演示 (Live Demo)](https://你的用户名.github.io/你的仓库名/)
 
 </div>
 
