@@ -1,5 +1,5 @@
+# 🚀 Git 交互式企业级实战手册 (Git Ultimate Guide)
 <div align="center">
-🚀 Git 交互式企业级实战手册 (Git Ultimate Guide)
 
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -47,7 +47,7 @@
 
 ```bash
 git clone [https://github.com/你的用户名/你的仓库名.git](https://github.com/你的用户名/你的仓库名.git)
-# 进入目录直接双击 git.html
+# 进入目录直接双击 index.html
 
 ```
 
@@ -79,15 +79,6 @@ git clone [https://github.com/你的用户名/你的仓库名.git](https://githu
 ## 📄 开源协议
 
 MIT License. 只有知识是免费且自由的。
-
-
-### 💡 给你的额外建议 (如何让更多人 Star)：
-
-1.  **开启 GitHub Pages**：
-    * 将 `Git_Ultimate_v3.html` 重命名为 `index.html`。
-    * 上传到仓库根目录。
-    * 在仓库 Settings -> Pages 中，Source 选择 `main` (或 master) branch，点击 Save。
-    * GitHub 会生成一个链接（如 `username.github.io/repo-name`），把这个链接贴在 README 的顶部。用户**不用下载就能用**，Star 率会大大提高。
 
 2.  **配图**：
     * 务必截图一张界面最好看的部分（比如那个 Git Flow 图或者时间轴），放在 README 里。人是视觉动物，看到好看的界面才会下载。
