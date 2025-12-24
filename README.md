@@ -79,9 +79,3 @@ git clone [https://github.com/你的用户名/你的仓库名.git](https://githu
 ## 📄 开源协议
 
 MIT License. 只有知识是免费且自由的。
-
-2.  **配图**：
-    * 务必截图一张界面最好看的部分（比如那个 Git Flow 图或者时间轴），放在 README 里。人是视觉动物，看到好看的界面才会下载。
-
-3.  **Release 打包**：
-    * 在 GitHub 右侧 Create a new release，把 HTML 文件作为附件上传。这样不懂 Git 的小白也能直接点击下载。
